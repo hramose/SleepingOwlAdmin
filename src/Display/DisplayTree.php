@@ -293,7 +293,8 @@ class DisplayTree extends Display implements WithRoutesInterface
      */
     protected function makeRepository()
     {
-        $repository = parent::makeRepository();
+        //$repository = parent::makeRepository();
+        $repository = new $this->repositoryClass($this->modelClass);
 
         if (! ($repository instanceof TreeRepositoryInterface)) {
             throw new \Exception('Repository class must be instanced of [TreeRepositoryInterface]');
